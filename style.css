@@ -1,0 +1,353 @@
+
+/* ========================================
+   THE ENDLESS JUMP — Main Styles
+   ======================================== */
+
+:root {
+  --background: #0b1020;
+  --panel: #151d32;
+  --text: #f8fafc;
+  --muted: #a5b4cc;
+  --accent: #7c5cff;
+  --cyan: #4de2ff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  padding: 20px 12px;
+  background:
+    radial-gradient(ellipse at top, #24366b 0%, transparent 48%),
+    var(--background);
+  color: var(--text);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont,
+               "Segoe UI", sans-serif;
+}
+
+button,
+.upload-button {
+  font: inherit;
+  -webkit-tap-highlight-color: transparent;
+}
+
+button {
+  cursor: pointer;
+}
+
+.game-container {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.brand-icon {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 15px;
+  background: #25244b;
+  font-size: 25px;
+}
+
+.brand h1 {
+  margin: 0;
+  font-size: clamp(17px, 4vw, 23px);
+  letter-spacing: -0.6px;
+}
+
+.brand p {
+  margin: 3px 0 0;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.upload-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px 12px;
+  border: 1px solid #465273;
+  border-radius: 12px;
+  background: #1a2340;
+  color: white;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.2s;
+}
+
+.upload-button:hover {
+  background: #303d65;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.stat-card {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 12px 8px;
+  min-width: 0;
+  border: 1px solid #283653;
+  border-radius: 13px;
+  background: linear-gradient(145deg, #1b2743, #11192c);
+}
+
+.stat-card span {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.stat-card strong {
+  overflow: hidden;
+  font-size: clamp(16px, 4vw, 23px);
+  line-height: 1.2;
+  text-overflow: ellipsis;
+}
+
+.game-shell {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border: 2px solid #34466c;
+  border-radius: 19px;
+  background: #10172a;
+  box-shadow:
+    0 0 35px #5841bb25,
+    0 20px 55px #00000050;
+}
+
+#gameCanvas {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 420 / 680;
+  touch-action: none;
+  outline: none;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  overflow-y: auto;
+  background: #080d1cba;
+  backdrop-filter: blur(6px);
+  z-index: 5;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.overlay-card {
+  width: 100%;
+  max-width: 340px;
+  padding: 24px 20px;
+  border: 1px solid #43537b;
+  border-radius: 22px;
+  background: linear-gradient(150deg, #202c4b, #11182b);
+  box-shadow: 0 18px 55px #00000055;
+  text-align: center;
+}
+
+.big-icon {
+  margin-bottom: 8px;
+  font-size: 48px;
+}
+
+.overlay-card h2 {
+  margin: 8px 0;
+  font-size: 27px;
+}
+
+.overlay-card p {
+  color: #c0cbe0;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.primary-button {
+  width: 100%;
+  margin: 15px 0 10px;
+  padding: 14px;
+  border: 0;
+  border-radius: 12px;
+  background: linear-gradient(100deg, #7658ff, #4b8dff);
+  color: white;
+  font-weight: 800;
+  box-shadow: 0 6px 20px #725cff40;
+  transition: transform 0.15s, filter 0.15s;
+}
+
+.primary-button:hover {
+  filter: brightness(1.12);
+}
+
+.primary-button:active {
+  transform: scale(0.98);
+}
+
+.overlay-card small {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.result-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 7px;
+  margin: 18px 0;
+}
+
+.result-grid div {
+  padding: 10px 4px;
+  border-radius: 10px;
+  background: #0c1428;
+}
+
+.result-grid span,
+.result-grid strong {
+  display: block;
+}
+
+.result-grid span {
+  margin-bottom: 5px;
+  color: var(--muted);
+  font-size: 10px;
+}
+
+.result-grid strong {
+  font-size: 17px;
+}
+
+.overlay-card h3 {
+  margin: 15px 0 8px;
+  font-size: 15px;
+}
+
+.leaderboard {
+  margin: 0;
+  padding-left: 27px;
+  text-align: left;
+}
+
+.leaderboard li {
+  padding: 7px 4px;
+  border-bottom: 1px solid #34405a;
+  color: #e4eaff;
+  font-size: 13px;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 14px 0;
+}
+
+.controls p {
+  flex: 1;
+  color: var(--muted);
+  font-size: 12px;
+  text-align: center;
+}
+
+.control-button {
+  flex: 0 0 65px;
+  height: 54px;
+  border: 1px solid #465a85;
+  border-radius: 15px;
+  background: linear-gradient(145deg, #27385c, #18233d);
+  color: white;
+  font-size: 22px;
+  font-weight: 800;
+  box-shadow: 0 5px 0 #0b1020;
+  user-select: none;
+  touch-action: none;
+}
+
+.control-button:active,
+.control-button.pressed {
+  transform: translateY(3px);
+  background: #4c4a91;
+  box-shadow: 0 2px 0 #0b1020;
+}
+
+.tip {
+  color: #92a4c4;
+  font-size: 12px;
+  line-height: 1.6;
+  text-align: center;
+}
+
+@media (max-width: 400px) {
+  body {
+    padding: 12px 8px;
+  }
+
+  .brand-icon {
+    width: 38px;
+    height: 38px;
+  }
+
+  .upload-button {
+    padding: 9px 8px;
+    font-size: 10px;
+  }
+
+  .stat-card {
+    padding: 10px 6px;
+  }
+
+  .stat-card span {
+    font-size: 10px;
+  }
+
+  .controls p {
+    font-size: 10px;
+  }
+
+  .control-button {
+    flex-basis: 56px;
+    height: 49px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+  }
+}

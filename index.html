@@ -1,0 +1,127 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#111827">
+  <title>The Endless Jump</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="game-container">
+    <header class="top-bar">
+      <div class="brand">
+        <span class="brand-icon">🚀</span>
+        <div>
+          <h1>The Endless Jump</h1>
+          <p>Jump higher. Collect more.</p>
+        </div>
+      </div>
+
+      <label class="upload-button" for="characterUpload">
+        <span>📷</span> Change Character
+      </label>
+
+      <input
+        id="characterUpload"
+        type="file"
+        accept="image/*"
+        hidden
+      >
+    </header>
+
+    <section class="stats" aria-label="Game statistics">
+      <div class="stat-card">
+        <span>🏆 Score</span>
+        <strong id="score">0</strong>
+      </div>
+      <div class="stat-card">
+        <span>📏 Height</span>
+        <strong id="height">0 m</strong>
+      </div>
+      <div class="stat-card">
+        <span>🪙 Coins</span>
+        <strong id="coins">0</strong>
+      </div>
+      <div class="stat-card">
+        <span>🥇 Best</span>
+        <strong id="bestScore">0</strong>
+      </div>
+    </section>
+
+    <section class="game-shell">
+      <canvas
+        id="gameCanvas"
+        width="420"
+        height="680"
+        aria-label="Endless Jump game area"
+        tabindex="0"
+      ></canvas>
+
+      <div id="startScreen" class="overlay">
+        <div class="overlay-card">
+          <div class="big-icon">🌌</div>
+          <h2>Ready to Jump?</h2>
+          <p>
+            Bounce from platform to platform, collect coins,
+            and see how high you can climb!
+          </p>
+          <button id="startButton" class="primary-button">
+            Start Game
+          </button>
+          <small>Use ← → or A / D to move</small>
+        </div>
+      </div>
+
+      <div id="gameOverScreen" class="overlay hidden">
+        <div class="overlay-card">
+          <div class="big-icon">💫</div>
+          <h2>Game Over!</h2>
+          <p>Your adventure has ended.</p>
+
+          <div class="result-grid">
+            <div>
+              <span>Final Score</span>
+              <strong id="finalScore">0</strong>
+            </div>
+            <div>
+              <span>Highest Point</span>
+              <strong id="finalHeight">0 m</strong>
+            </div>
+            <div>
+              <span>Coins Collected</span>
+              <strong id="finalCoins">0</strong>
+            </div>
+          </div>
+
+          <h3>🏆 Top 5 Runs</h3>
+          <ol id="leaderboard" class="leaderboard"></ol>
+
+          <button id="restartButton" class="primary-button">
+            Play Again
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <footer class="controls">
+      <button id="leftButton" class="control-button"
+              aria-label="Move left">◀</button>
+
+      <p>Move left or right to land on platforms</p>
+
+      <button id="rightButton" class="control-button"
+              aria-label="Move right">▶</button>
+    </footer>
+
+    <p class="tip">
+      💡 Tip: Platforms get harder to reach as you climb.
+      Grab coins for bonus points!
+    </p>
+  </main>
+
+  <script src="game.js"></script>
+</body>
+</html>
